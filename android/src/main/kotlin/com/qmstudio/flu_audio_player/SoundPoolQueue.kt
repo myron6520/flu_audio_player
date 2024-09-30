@@ -33,6 +33,11 @@ class SoundPoolQueue {
         if(isPlaying)return
         doPlay()
     }
+    fun reset(){
+        soundsIds.clear()
+        soundQueue.clear()
+        isPlaying = false
+    }
     private fun doPlay(){
         if(soundQueue.isNotEmpty()){
             isPlaying = true

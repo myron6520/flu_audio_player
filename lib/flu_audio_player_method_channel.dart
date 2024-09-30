@@ -22,4 +22,9 @@ class MethodChannelFluAudioPlayer extends FluAudioPlayerPlatform {
     await methodChannel.invokeMethod(
         'playAudios', audio.map((e) => e.toMap()).toList());
   }
+
+  @override
+  Future<void> resetSoundPool() async {
+    await methodChannel.invokeMethod('resetSoundPool');
+  }
 }

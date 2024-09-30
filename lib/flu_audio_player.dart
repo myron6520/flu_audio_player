@@ -10,4 +10,8 @@ class FluAudioPlayer {
   Future<void> playAudios(List<Audio> audios) async {
     return await FluAudioPlayerPlatform.instance.playAudios(audios);
   }
+
+  Future<void> resetSoundPool() async {
+    return await FluAudioPlayerPlatform.instance.resetSoundPool();
+  }
 }

@@ -31,4 +31,8 @@ abstract class FluAudioPlayerPlatform extends PlatformInterface {
   Future<void> playAudios(List<Audio> audio) {
     throw UnimplementedError('playAudios() has not been implemented.');
   }
+
+  Future<void> resetSoundPool() {
+    throw UnimplementedError('resetSoundPool() has not been implemented.');
+  }
 }

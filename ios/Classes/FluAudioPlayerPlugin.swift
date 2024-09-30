@@ -12,10 +12,10 @@ public class FluAudioPlayerPlugin: NSObject, FlutterPlugin {
     switch call.method {
     case "getPlatformVersion":
       result("iOS " + UIDevice.current.systemVersion)
-    case "playAudios":
-        {
-            
-        }
+//    case "playAudios":
+//        {
+//            
+//        }
     default:
       result(FlutterMethodNotImplemented)
     }

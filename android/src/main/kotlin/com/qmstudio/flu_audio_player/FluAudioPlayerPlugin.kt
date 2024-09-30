@@ -25,7 +25,7 @@ class FluAudioPlayerPlugin: FlutterPlugin, MethodCallHandler {
   }
 
   override fun onMethodCall(call: MethodCall, result: Result) {
-    Log.e("flu_audio_player", "onMethodCall:${call.method} " )
+    Log.e("flu_audio_player", "onMethodCall:${call.method} arguments: ${call.arguments} " )
     when(call.method){
       "playAudios"->{
         val arguments = call.arguments as List<*>?
@@ -44,6 +44,9 @@ class FluAudioPlayerPlugin: FlutterPlugin, MethodCallHandler {
           }
           soundPoolQueue.addAudios(list)
         }
+      }
+      "resetSoundPool"->{
+        soundPoolQueue.reset()
       }
       else -> result.notImplemented()
     }
