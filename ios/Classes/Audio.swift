@@ -7,11 +7,11 @@
 
 import UIKit
 
-class Audio: NSObject {
+class Audio {
     var uuid:String = ""
     var asset:String = ""
     var assetPackage:String = ""
     var path:String = ""
-    var durtion:Int = 0
+    var duration:Int = 0
     var speed:Double = 1
 }
