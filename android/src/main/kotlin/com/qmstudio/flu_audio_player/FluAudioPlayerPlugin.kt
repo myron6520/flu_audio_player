@@ -44,9 +44,11 @@ class FluAudioPlayerPlugin: FlutterPlugin, MethodCallHandler {
           }
           soundPoolQueue.addAudios(list)
         }
+        result.success(null)
       }
       "resetSoundPool"->{
         soundPoolQueue.reset()
+        result.success(null)
       }
       else -> result.notImplemented()
     }
@@ -54,5 +56,8 @@ class FluAudioPlayerPlugin: FlutterPlugin, MethodCallHandler {
 
   override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {
     channel.setMethodCallHandler(null)
+    if (::soundPoolQueue.isInitialized) {
+      soundPoolQueue.release()
+    }
   }
 }
