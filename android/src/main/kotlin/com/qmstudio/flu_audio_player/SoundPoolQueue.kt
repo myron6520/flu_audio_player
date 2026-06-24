@@ -2,7 +2,6 @@ package com.qmstudio.flu_audio_player
 
 import android.media.AudioAttributes
 import android.media.SoundPool
-import android.os.Build
 import android.os.Handler
 import android.os.HandlerThread
 import android.util.Log
@@ -158,11 +157,7 @@ class SoundPoolQueue {
     private fun playAndScheduleNext(audioInfo: Audio, soundId: Int, gen: Int): Boolean {
         val pool = soundPool ?: return false
         val speed = clampSpeed(audioInfo.speed)
-        val streamId = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            pool.play(soundId, 1f, 1f, 1, 0, speed.toFloat())
-        } else {
-            pool.play(soundId, 1f, 1f, 1, 0)
-        }
+        val streamId = pool.play(soundId, 1f, 1f, 1, 0, speed.toFloat())
         if (streamId == 0) {
             return false
         }
